@@ -26,10 +26,8 @@ namespace EmployeeManagementSystem.Windows.Commponents
         {
             InitializeComponent();
 
-            // متن پیام
             MessageText.Text = message;
 
-            // تنظیم آیکون
             switch (icon)
             {
                 case DialogIconType.Info:
@@ -50,7 +48,6 @@ namespace EmployeeManagementSystem.Windows.Commponents
                     break;
             }
 
-            // تنظیم دکمه‌ها
             AddButtons(button);
         }
 
