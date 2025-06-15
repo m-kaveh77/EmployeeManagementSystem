@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Images\App.png" />
     <Resource Include="Images\Lock.png" />
     <Resource Include="Images\User.png" />
