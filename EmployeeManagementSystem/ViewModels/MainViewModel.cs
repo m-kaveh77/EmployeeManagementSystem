@@ -1,4 +1,7 @@
 ﻿using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.Windows.Commponents;
+using System.Windows;
+using System.Windows.Input;
 
 namespace EmployeeManagementSystem.ViewModels
 {
@@ -26,6 +29,18 @@ namespace EmployeeManagementSystem.ViewModels
         {
             _employeeService = employeeService;
             _ = InitializeAsync();
+        }
+
+        public ICommand? LogoutCommand => ResolveCommand("LogoutCommand", LogoutCommandAction);
+
+        private void LogoutCommandAction()
+        {
+            var result = CustomDialog.Show("Are you sure you want to logout and close the application?", CustomDialog.DialogIconType.Warning, CustomDialog.DialogButtonType.YesNo);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
 
         private async Task InitializeAsync()
