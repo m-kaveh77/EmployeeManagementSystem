@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EmployeeManagementSystem.ViewModels.Login;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace EmployeeManagementSystem.Windows.Login
 {
@@ -19,9 +9,24 @@ namespace EmployeeManagementSystem.Windows.Login
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public LoginWindow()
+        private readonly LoginViewModel _loginViewModel;
+
+        public LoginWindow(LoginViewModel loginViewModel, MainWindow mainWindow)
         {
+            _loginViewModel = loginViewModel;
+            _loginViewModel.OnSuccessLogin += (sender, args) =>
+            {
+                mainWindow.Show();
+                this.Close();
+            };
+            this.DataContext = _loginViewModel;
             InitializeComponent();
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            _loginViewModel.Password = ((PasswordBox)sender).Password;
+            LoginButton.IsEnabled = true;
         }
     }
 }
