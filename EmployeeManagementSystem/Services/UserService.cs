@@ -29,7 +29,7 @@ namespace EmployeeManagementSystem.Services
             await context.SaveChangesAsync();
         }
 
-        public async Task<bool> UserIsValidAsync(string username, string password)
+        public async Task<bool> IsUserValidAsync(string username, string password)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.Username == username);
 
