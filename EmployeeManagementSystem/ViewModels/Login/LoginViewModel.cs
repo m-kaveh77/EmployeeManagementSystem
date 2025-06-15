@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace EmployeeManagementSystem.ViewModels.Login
 {
-    public class LoginViewModel(EmployeeDbContext context, UserService userService) : BaseViewModel
+    public class LoginViewModel(UserService userService) : BaseViewModel
     {
         private string? username;
         private string? password;

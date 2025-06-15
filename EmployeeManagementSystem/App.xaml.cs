@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementSystem.Infrastructure;
 using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Services;
+using EmployeeManagementSystem.ViewModels;
 using EmployeeManagementSystem.ViewModels.Login;
 using EmployeeManagementSystem.Windows;
 using EmployeeManagementSystem.Windows.Login;
@@ -33,9 +34,11 @@ namespace EmployeeManagementSystem
             services.AddDbContext<EmployeeDbContext>(ServiceLifetime.Transient);
             
             services.AddTransient<UserService>();
+            services.AddTransient<EmployeeService>();
 
             // ViewModels
             services.AddTransient<LoginViewModel>();
+            services.AddTransient<MainViewModel>();
 
             // Windows
             services.AddTransient<LoginWindow>();
