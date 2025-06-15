@@ -14,6 +14,7 @@
         public GenderType Gender { get; set; }
         public DateTime EmploymentDate { get; set; }
         public DateTime BirthDate { get; set; }
+        public bool IsActive { get; set; } = true;
         public string Avatar { get; set; }
     }
 
