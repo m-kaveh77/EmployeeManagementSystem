@@ -2,8 +2,10 @@
 using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Services;
 using EmployeeManagementSystem.ViewModels;
+using EmployeeManagementSystem.ViewModels.Employee;
 using EmployeeManagementSystem.ViewModels.Login;
 using EmployeeManagementSystem.Windows;
+using EmployeeManagementSystem.Windows.Employee;
 using EmployeeManagementSystem.Windows.Login;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,10 +41,12 @@ namespace EmployeeManagementSystem
             // ViewModels
             services.AddTransient<LoginViewModel>();
             services.AddTransient<MainViewModel>();
+            services.AddTransient<EmployeeListViewModel>();
 
             // Windows
             services.AddTransient<LoginWindow>();
             services.AddTransient<MainWindow>();
+            services.AddTransient<EmployeeListWindow>();
         }
     }
 }

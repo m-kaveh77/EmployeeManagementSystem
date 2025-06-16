@@ -28,9 +28,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\App.png" />
-    <Resource Include="Images\Lock.png" />
-    <Resource Include="Images\User.png" />
+    <Resource Include="Images\App.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Lock.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\User.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

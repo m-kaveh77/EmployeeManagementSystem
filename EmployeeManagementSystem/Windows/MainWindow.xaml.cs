@@ -1,4 +1,6 @@
 ﻿using EmployeeManagementSystem.ViewModels;
+using EmployeeManagementSystem.Windows.Employee;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
 namespace EmployeeManagementSystem.Windows
@@ -15,6 +17,12 @@ namespace EmployeeManagementSystem.Windows
             _serviceProvider = serviceProvider;
             DataContext = mainViewModel;
             InitializeComponent();
+        }
+
+        private void EmployeeList_Click(object sender, RoutedEventArgs e)
+        {
+            var employeeListWindow = _serviceProvider.GetService<EmployeeListWindow>();
+            employeeListWindow?.ShowDialog();
         }
     }
 }
