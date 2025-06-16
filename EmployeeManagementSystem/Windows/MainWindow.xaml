@@ -8,7 +8,8 @@
         Title="Employee Management Dashboard" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen"
         Background="#F4F4F4"
-        FlowDirection="LeftToRight">
+        FlowDirection="LeftToRight"
+        Icon="/Images/App.png">
 
     <!-- Styles and Effects -->
     <Window.Resources>
@@ -45,7 +46,7 @@
         <DockPanel Width="200" Background="#2E2E2E" HorizontalAlignment="Left">
             <StackPanel Margin="0,20,0,0">
                 <TextBlock Text="App Menu" FontSize="20" Foreground="White" FontWeight="Bold" Margin="10,0,0,20"/>
-                <Button Style="{StaticResource NavButtonStyle}">
+                <Button Style="{StaticResource NavButtonStyle}" Name="EmployeeList" Click="EmployeeList_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="👥" Margin="0,0,10,10"/>
                         <TextBlock Text="Employees"/>
