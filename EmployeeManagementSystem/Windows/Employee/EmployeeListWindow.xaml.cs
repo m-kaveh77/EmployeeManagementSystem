@@ -22,15 +22,15 @@ namespace EmployeeManagementSystem.Windows.Employee
 
         private void AddNewEmployee_Click(object sender, RoutedEventArgs e)
         {
-            var editWindow = _serviceProvider.GetService<EmployeeEditWindow>();
-            var showDialog = editWindow?.ShowDialog();
+            //var editWindow = _serviceProvider.GetService<EmployeeEditWindow>();
+            //var showDialog = editWindow?.ShowDialog();
 
-            if (showDialog ?? false)
-            {
-                _listViewModel.ReloadItems();
-                EmployeeDataGrid.ItemsSource = null;
-                EmployeeDataGrid.ItemsSource = _listViewModel.Employees;
-            }
+            //if (showDialog ?? false)
+            //{
+            //    _listViewModel.ReloadItems();
+            //    EmployeeDataGrid.ItemsSource = null;
+            //    EmployeeDataGrid.ItemsSource = _listViewModel.Employees;
+            //}
         }
     }
 }
