@@ -49,16 +49,15 @@ namespace EmployeeManagementSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("BirthDate")
+                    b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EducationLevelId")
+                    b.Property<int?>("EducationLevelId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("EmploymentDate")
+                    b.Property<DateTime?>("EmploymentDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Family")
@@ -89,11 +88,10 @@ namespace EmployeeManagementSystem.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<int>("PositionId")
+                    b.Property<int?>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<string>("StudyField")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -177,15 +175,11 @@ namespace EmployeeManagementSystem.Migrations
                 {
                     b.HasOne("EmployeeManagementSystem.Models.Entities.EducationLevel", "EducationLevel")
                         .WithMany("Employees")
-                        .HasForeignKey("EducationLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EducationLevelId");
 
                     b.HasOne("EmployeeManagementSystem.Models.Entities.Position", "Position")
                         .WithMany("Employees")
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionId");
 
                     b.Navigation("EducationLevel");
 
