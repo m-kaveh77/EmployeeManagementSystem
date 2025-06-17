@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace EmployeeManagementSystem.Windows.Commponents
+namespace EmployeeManagementSystem.Windows.Components
 {
     /// <summary>
     /// Interaction logic for CustomDialog.xaml

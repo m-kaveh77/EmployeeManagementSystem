@@ -1,5 +1,5 @@
 ﻿using EmployeeManagementSystem.Services;
-using EmployeeManagementSystem.Windows.Commponents;
+using EmployeeManagementSystem.Windows.Components;
 using System.Windows;
 using System.Windows.Input;
 

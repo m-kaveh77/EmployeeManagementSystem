@@ -1,6 +1,6 @@
 ﻿using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.ViewModels.Employee;
-using EmployeeManagementSystem.Windows.Commponents;
+using EmployeeManagementSystem.Windows.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;

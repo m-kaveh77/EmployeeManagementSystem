@@ -1,6 +1,6 @@
 ﻿using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Models.Entities;
-using EmployeeManagementSystem.Windows.Commponents;
+using EmployeeManagementSystem.Windows.Components;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Windows.Input;
