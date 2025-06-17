@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <None Remove="Images\App.png" />
+    <None Remove="Images\Delete.png" />
+    <None Remove="Images\Detail.png" />
+    <None Remove="Images\Edit.png" />
     <None Remove="Images\Lock.png" />
     <None Remove="Images\User.png" />
   </ItemGroup>
@@ -29,6 +32,15 @@
 
   <ItemGroup>
     <Resource Include="Images\App.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Delete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Detail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Edit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Lock.png">

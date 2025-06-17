@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 
 namespace EmployeeManagementSystem.ViewModels.Employee
@@ -6,12 +7,14 @@ namespace EmployeeManagementSystem.ViewModels.Employee
     public class EmployeeListViewModel : BaseViewModel
     {
         private readonly EmployeeDbContext _context;
+        public event Action<Models.Entities.Employee> OnSubmitChangesSuccess;
+
         public ObservableCollection<Models.Entities.Employee> Employees { get; set; } = new();
 
         public EmployeeListViewModel(EmployeeDbContext context)
         {
             _context = context;
-            Employees = new ObservableCollection<Models.Entities.Employee>(context.Employees.ToList());
+            Employees = new ObservableCollection<Models.Entities.Employee>(context.Employees.Include(e => e.EducationLevel).Include(e => e.Position).ToList());
 
             ReloadItems();
         }
@@ -19,17 +22,10 @@ namespace EmployeeManagementSystem.ViewModels.Employee
         public void ReloadItems()
         {
             Employees = new ObservableCollection<Models.Entities.Employee>(_context.Employees
-                .Select(b => new Models.Entities.Employee
-                {
-                    Id = b.Id,
-                    Name = b.Name,
-                    Family = b.Family,
-                    Mobile = b.Mobile,
-                    NationalCode = b.NationalCode,
-                    Avatar = b.Avatar,
-                    Gender= b.Gender,
-                    //Author = b.Authors.FirstOrDefault().Name
-                }).ToList());
+                .Include(e => e.EducationLevel)
+                .Include(e => e.Position)
+                .AsNoTracking()
+                .ToList());
         }
     }
 }

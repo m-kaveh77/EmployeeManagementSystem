@@ -42,11 +42,13 @@ namespace EmployeeManagementSystem
             services.AddTransient<LoginViewModel>();
             services.AddTransient<MainViewModel>();
             services.AddTransient<EmployeeListViewModel>();
+            services.AddTransient<EmployeeEditViewModel>();
 
             // Windows
             services.AddTransient<LoginWindow>();
             services.AddTransient<MainWindow>();
             services.AddTransient<EmployeeListWindow>();
+            services.AddTransient<EmployeeEditWindow>();
         }
     }
 }
