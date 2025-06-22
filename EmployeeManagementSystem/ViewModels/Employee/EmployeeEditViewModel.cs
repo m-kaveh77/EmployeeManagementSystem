@@ -37,11 +37,11 @@ namespace EmployeeManagementSystem.ViewModels.Employee
         private DateTime? birthDate;
         private DateTime? employementDate;
         private GenderType gender;
-        private EducationLevel? educationLevel;
+        private Models.Entities.EducationLevel? educationLevel;
         private Position? position;
         private ImageSource? avatarPreview;
 
-        public List<EducationLevel> EducationLevels { get; set; }
+        public List<Models.Entities.EducationLevel> EducationLevels { get; set; }
         public List<Position> Positions { get; set; }
         public Array Genders { get; set; }
 
@@ -111,7 +111,7 @@ namespace EmployeeManagementSystem.ViewModels.Employee
             set => SetProperty(ref gender, value);
         }
 
-        public EducationLevel EducationLevel
+        public Models.Entities.EducationLevel EducationLevel
         {
             get => educationLevel;
             set => SetProperty(ref educationLevel, value);
