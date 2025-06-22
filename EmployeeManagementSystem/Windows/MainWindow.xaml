@@ -58,7 +58,7 @@
                         <TextBlock Text="Education Levels"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{StaticResource NavButtonStyle}" Name="Positions">
+                <Button Style="{StaticResource NavButtonStyle}" Name="Positions" Click="Positions_Click">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="👨‍💼" Margin="0,0,10,10"/>
                         <TextBlock Text="Positions"/>

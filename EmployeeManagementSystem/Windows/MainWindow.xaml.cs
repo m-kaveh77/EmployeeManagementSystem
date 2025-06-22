@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementSystem.ViewModels;
 using EmployeeManagementSystem.Windows.EducationLevel;
 using EmployeeManagementSystem.Windows.Employee;
+using EmployeeManagementSystem.Windows.Position;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 
@@ -30,6 +31,12 @@ namespace EmployeeManagementSystem.Windows
         {
             var educationLevelListWindow = _serviceProvider.GetService<EducationLevelListWindow>();
             educationLevelListWindow?.ShowDialog();
+        }
+
+        private void Positions_Click(object sender, RoutedEventArgs e)
+        {
+            var positionListWindow = _serviceProvider.GetService<PositionListWindow>();
+            positionListWindow?.ShowDialog();
         }
     }
 }
