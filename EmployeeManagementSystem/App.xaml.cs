@@ -5,10 +5,12 @@ using EmployeeManagementSystem.ViewModels;
 using EmployeeManagementSystem.ViewModels.EducationLevel;
 using EmployeeManagementSystem.ViewModels.Employee;
 using EmployeeManagementSystem.ViewModels.Login;
+using EmployeeManagementSystem.ViewModels.Position;
 using EmployeeManagementSystem.Windows;
 using EmployeeManagementSystem.Windows.EducationLevel;
 using EmployeeManagementSystem.Windows.Employee;
 using EmployeeManagementSystem.Windows.Login;
+using EmployeeManagementSystem.Windows.Position;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -51,6 +53,9 @@ namespace EmployeeManagementSystem
             services.AddTransient<EducationLevelListViewModel>();
             services.AddTransient<EducationLevelEditViewModel>();
 
+            services.AddTransient<PositionListViewModel>();
+            services.AddTransient<PositionEditViewModel>();
+
             // Windows
             services.AddTransient<LoginWindow>();
             
@@ -61,6 +66,9 @@ namespace EmployeeManagementSystem
             
             services.AddTransient<EducationLevelListWindow>();
             services.AddTransient<EducationLevelEditWindow>();
+            
+            services.AddTransient<PositionListWindow>();
+            services.AddTransient<PositionEditWindow>();
         }
     }
 }
