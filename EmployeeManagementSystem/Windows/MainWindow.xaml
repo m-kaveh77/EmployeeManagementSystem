@@ -52,6 +52,18 @@
                         <TextBlock Text="Employees"/>
                     </StackPanel>
                 </Button>
+                <Button Style="{StaticResource NavButtonStyle}" Name="EducationLevels">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🎓" Margin="0,0,10,10"/>
+                        <TextBlock Text="Education Levels"/>
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource NavButtonStyle}" Name="Positions">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="👨‍💼" Margin="0,0,10,10"/>
+                        <TextBlock Text="Positions"/>
+                    </StackPanel>
+                </Button>
                 <Button Style="{StaticResource NavButtonStyle}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="📊" Margin="0,0,10,10"/>
