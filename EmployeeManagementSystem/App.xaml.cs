@@ -2,9 +2,11 @@
 using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Services;
 using EmployeeManagementSystem.ViewModels;
+using EmployeeManagementSystem.ViewModels.EducationLevel;
 using EmployeeManagementSystem.ViewModels.Employee;
 using EmployeeManagementSystem.ViewModels.Login;
 using EmployeeManagementSystem.Windows;
+using EmployeeManagementSystem.Windows.EducationLevel;
 using EmployeeManagementSystem.Windows.Employee;
 using EmployeeManagementSystem.Windows.Login;
 using Microsoft.Extensions.Configuration;
@@ -40,15 +42,25 @@ namespace EmployeeManagementSystem
 
             // ViewModels
             services.AddTransient<LoginViewModel>();
+
             services.AddTransient<MainViewModel>();
+
             services.AddTransient<EmployeeListViewModel>();
             services.AddTransient<EmployeeEditViewModel>();
 
+            services.AddTransient<EducationLevelListViewModel>();
+            services.AddTransient<EducationLevelEditViewModel>();
+
             // Windows
             services.AddTransient<LoginWindow>();
+            
             services.AddTransient<MainWindow>();
+            
             services.AddTransient<EmployeeListWindow>();
             services.AddTransient<EmployeeEditWindow>();
+            
+            services.AddTransient<EducationLevelListWindow>();
+            services.AddTransient<EducationLevelEditWindow>();
         }
     }
 }
