@@ -1,4 +1,5 @@
 ﻿using EmployeeManagementSystem.ViewModels;
+using EmployeeManagementSystem.Windows.EducationLevel;
 using EmployeeManagementSystem.Windows.Employee;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
@@ -23,6 +24,12 @@ namespace EmployeeManagementSystem.Windows
         {
             var employeeListWindow = _serviceProvider.GetService<EmployeeListWindow>();
             employeeListWindow?.ShowDialog();
+        }
+
+        private void EducationLevels_Click(object sender, RoutedEventArgs e)
+        {
+            var educationLevelListWindow = _serviceProvider.GetService<EducationLevelListWindow>();
+            educationLevelListWindow?.ShowDialog();
         }
     }
 }
