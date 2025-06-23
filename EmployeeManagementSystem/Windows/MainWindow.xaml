@@ -64,12 +64,6 @@
                         <TextBlock Text="Positions"/>
                     </StackPanel>
                 </Button>
-                <Button Style="{StaticResource NavButtonStyle}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="📊" Margin="0,0,10,10"/>
-                        <TextBlock Text="Reports"/>
-                    </StackPanel>
-                </Button>
                 <Button Style="{StaticResource NavButtonStyle}" Command="{Binding LogoutCommand}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="🚪" Margin="0,0,10,10"/>
