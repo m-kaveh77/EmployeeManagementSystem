@@ -1,0 +1,143 @@
+﻿<Window x:Class="EmployeeManagementSystem.Windows.Login.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagementSystem.Windows.Login"
+        mc:Ignorable="d"
+        Title="Employee System Login" Height="600" Width="1000" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" 
+        Background="Transparent"
+        FocusManager.FocusedElement="{Binding ElementName=UsernameTextBox}"
+        Icon="/Images/App.png">
+
+    <Window.Resources>
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                            Background="#8E2DE2"
+                            CornerRadius="10"
+                            Opacity="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#6410c0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#CCCCCC"/>
+                                <Setter Property="Foreground" Value="#666"/>
+                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#4A00E0" Offset="0"/>
+                <GradientStop Color="#8E2DE2" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border Width="500" Height="400" Background="#80FFFFFF" CornerRadius="20" Padding="30" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Border.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="20" ShadowDepth="5" Opacity="0.3"/>
+            </Border.Effect>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <TextBlock Text="Welcme to Employee System" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" TextAlignment="Center"/>
+
+                <StackPanel Margin="0,0,0,10">
+                    <TextBlock Text="Username" Foreground="#444" Margin="0,0,0,5"/>
+                    <Border Background="#F0F0F0" CornerRadius="10" Height="40">
+                        <DockPanel>
+                            <Image Source="/Images/User.png" Width="24" Height="24" Margin="8" VerticalAlignment="Center"/>
+                            <TextBox Text="{Binding Username}" Name="UsernameTextBox" BorderThickness="0" Background="Transparent" VerticalContentAlignment="Center" FontSize="14" />
+                        </DockPanel>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="0,0,0,20">
+                    <TextBlock Text="Password" Foreground="#444" Margin="0,0,0,5"/>
+                    <Border Background="#F0F0F0" CornerRadius="10" Height="40">
+                        <DockPanel>
+                            <Image Source="/Images/Lock.png" Width="24" Height="24" Margin="8" VerticalAlignment="Center"/>
+                            <PasswordBox Name="PasswordBox" PasswordChanged="PasswordBox_PasswordChanged" BorderThickness="0" Background="Transparent" VerticalContentAlignment="Center" FontSize="14" />
+                        </DockPanel>
+                    </Border>
+                </StackPanel>
+
+                <Button Name="LoginButton"
+                        Content="Login"
+                        Height="40"
+                        Background="#8E2DE2"
+                        Foreground="White"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        BorderThickness="0"
+                        Command="{Binding LoginCommand}"
+                        IsDefault="True"
+                        IsEnabled="False">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#8E2DE2"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Padding" Value="10,5"/>
+                            <Setter Property="FontSize" Value="16"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                Opacity="1">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#A738F2"/>
+                                            </Trigger>
+
+                                            <Trigger Property="IsPressed" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#731BD0"/>
+                                            </Trigger>
+
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="border" Property="Background" Value="#CCCCCC"/>
+                                                <Setter Property="Foreground" Value="#777"/>
+                                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                                                <Setter Property="Cursor" Value="Arrow"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="EmployeeManagementSystem.Windows.Employee.EmployeeListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagementSystem.Windows.Employee"
+        xmlns:utils="clr-namespace:EmployeeManagementSystem.Utils"
+        mc:Ignorable="d"
+        Title="Employee List" Height="700" Width="1500" 
+        Icon="/Images/App.png"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <utils:Base64ToImageConverter x:Key="Base64ToImageConverter"/>
+        <utils:RowNumberConverter x:Key="RowNumberConverter"/>
+    </Window.Resources>
+
+    <DockPanel Margin="10" LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <Button Content="Add New Employee" Command="{Binding AddCommand}" Name="AddNewEmployee" Click="AddNewEmployee_Click" Background="#8E2DE2" Foreground="White" Margin="0,0,10,0" Width="120" Cursor="Hand"/>
+        </StackPanel>
+
+        <DataGrid Name="EmployeeDataGrid" ItemsSource="{Binding Employees}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" AlternationCount="1000">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="#" Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=AlternationIndex, Converter={StaticResource RowNumberConverter}}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Photo" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="60" Height="60" Stretch="UniformToFill" Source="{Binding Avatar, Converter={StaticResource Base64ToImageConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Family" Binding="{Binding Family}" Width="*"/>
+                <DataGridTextColumn Header="National Code" Binding="{Binding NationalCode}" Width="*"/>
+                <DataGridTextColumn Header="Mobile" Binding="{Binding Mobile}" Width="*"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="*"/>
+                <DataGridTextColumn Header="StudyField" Binding="{Binding StudyField}" Width="*"/>
+                <DataGridTextColumn Header="Degree" Binding="{Binding EducationLevel.Title}" Width="*"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Position.Title}" Width="*"/>
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button ToolTip="Details" Name="DetailEmployee" Click="DetailEmployee_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Detail.png" Width="17" Height="18"/>
+                                </Button>
+
+                                <Button ToolTip="Edit" Name="EditEmployee" Click="EditEmployee_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Edit.png" Width="17" Height="18"/>
+                                </Button>
+
+                                <Button ToolTip="Delete" Name="DeleteEmployee" Click="DeleteEmployee_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Delete.png" Width="17" Height="18"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

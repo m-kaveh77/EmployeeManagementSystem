@@ -1,0 +1,43 @@
+﻿<Window x:Class="EmployeeManagementSystem.Windows.Position.PositionListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagementSystem.Windows.Position"
+        mc:Ignorable="d"
+        Title="Position List" Height="700" Width="1500" 
+        Icon="/Images/App.png"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen">
+
+    <DockPanel Margin="10" LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <Button Content="Add New Position" Command="{Binding AddCommand}" Name="AddNewPosition" Click="AddNewPosition_Click" Background="#8E2DE2" Foreground="White" Margin="0,0,10,0" Width="150" Cursor="Hand"/>
+        </StackPanel>
+
+        <DataGrid Name="PositionDataGrid" ItemsSource="{Binding Positions}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" AlternationCount="1000">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button ToolTip="Details" Name="DetailPosition" Click="DetailPosition_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Detail.png" Width="17" Height="18"/>
+                                </Button>
+
+                                <Button ToolTip="Edit" Name="EditPosition" Click="EditPosition_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Edit.png" Width="17" Height="18"/>
+                                </Button>
+
+                                <Button ToolTip="Delete" Name="DeletePosition" Click="DeletePosition_Click" Width="30" Height="30" Background="Transparent" BorderThickness="0">
+                                    <Image Source="/Images/Delete.png" Width="17" Height="18"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

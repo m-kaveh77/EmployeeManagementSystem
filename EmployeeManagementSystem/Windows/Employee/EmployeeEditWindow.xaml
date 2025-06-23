@@ -1,0 +1,99 @@
+﻿<Window x:Class="EmployeeManagementSystem.Windows.Employee.EmployeeEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagementSystem.Windows.Employee"
+        xmlns:utils="clr-namespace:EmployeeManagementSystem.Utils"
+        mc:Ignorable="d"
+        Title="Add New Employee" Height="700" Width="600" WindowStartupLocation="CenterScreen"
+        Background="#F4F4F4"
+        Icon="/Images/App.png">
+
+    <Window.Resources>
+        <utils:Base64ToImageConverter x:Key="Base64ToImageConverter"/>
+        <utils:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <utils:BoolToVisibilityInverseConverter x:Key="BoolToVisibilityInverseConverter"/>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="New Employee" FontSize="22" FontWeight="Bold" Foreground="#8E2DE2"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="20" Margin="0,20,0,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Profile Picture Upload -->
+                <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,15">
+                    <Border Width="80" Height="80" Margin="0,0,10,0" BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" SnapsToDevicePixels="True" ClipToBounds="True">
+                        <Image Source="{Binding Avatar, Converter={StaticResource Base64ToImageConverter}}" Width="80" Height="80" Stretch="UniformToFill"/>
+                    </Border>
+                    <Button Content="Upload Photo" Visibility="{Binding IsReadOnlyMode, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVisibilityInverseConverter}}" Width="120" Height="30" Background="#8E2DE2" Foreground="White" FontWeight="Bold" Command="{Binding UploadPhotoCommand}"/>
+                </StackPanel>
+
+                <!-- Name -->
+                <TextBlock Text="Name" Grid.Row="1" Grid.Column="0" Margin="0,5"/>
+                <TextBox Text="{Binding Name}" Grid.Row="1" Grid.Column="0" Margin="0,30,10,10"/>
+
+                <!-- Family -->
+                <TextBlock Text="Family" Grid.Row="1" Grid.Column="1" Margin="0,5"/>
+                <TextBox Text="{Binding Family}" Grid.Row="1" Grid.Column="1" Margin="10,30,0,10"/>
+
+                <!-- Gender -->
+                <TextBlock Text="Gender" Grid.Row="2" Grid.Column="0" Margin="0,5"/>
+                <ComboBox Grid.Row="2" Grid.Column="0" Margin="0,30,10,10" ItemsSource="{Binding Genders}" SelectedValue="{Binding Gender}"></ComboBox>
+
+                <!-- Mobile -->
+                <TextBlock Text="Mobile" Grid.Row="2" Grid.Column="1" Margin="0,5"/>
+                <TextBox Text="{Binding Mobile}" Grid.Row="2" Grid.Column="1" Margin="10,30,0,10"/>
+
+                <!-- National ID -->
+                <TextBlock Text="National Code" Grid.Row="3" Grid.Column="0" Margin="0,5"/>
+                <TextBox Text="{Binding NationalCode}" Grid.Row="3" Grid.Column="0" Margin="0,30,10,10"/>
+
+                <!-- Field of Study -->
+                <TextBlock Text="Study Field" Grid.Row="3" Grid.Column="1" Margin="0,5"/>
+                <TextBox Text="{Binding StudyField}" Grid.Row="3" Grid.Column="1" Margin="10,30,0,10"/>
+
+                <!-- Degree -->
+                <TextBlock Text="Degree" Grid.Row="4" Grid.Column="0" Margin="0,5"/>
+                <ComboBox Grid.Row="4" Grid.Column="0" Margin="0,30,10,10" ItemsSource="{Binding EducationLevels}" SelectedValue="{Binding EducationLevel}" DisplayMemberPath="Title"></ComboBox>
+
+                <!-- Position -->
+                <TextBlock Text="Position" Grid.Row="4" Grid.Column="1" Margin="0,5"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" Margin="10,30,0,10" ItemsSource="{Binding Positions}" SelectedValue="{Binding Position}" DisplayMemberPath="Title"></ComboBox>
+
+                <!-- Hire Date -->
+                <TextBlock Text="Hire Date" Grid.Row="5" Grid.Column="0" Margin="0,5"/>
+                <DatePicker SelectedDate="{Binding EmploymentDate}" Grid.Row="5" Grid.Column="0" Margin="0,30,10,0"/>
+
+                <!-- Birth Date -->
+                <TextBlock Text="Birth Date" Grid.Row="5" Grid.Column="1" Margin="0,5"/>
+                <DatePicker SelectedDate="{Binding BirthDate}" Grid.Row="5" Grid.Column="1" Margin="10,30,0,0"/>
+            </Grid>
+        </Border>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Cancel" Name="CancelButton" Click="CancelButton_Click" Visibility="{Binding IsReadOnlyMode, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVisibilityInverseConverter}}" Width="100" Margin="0,0,10,0" Background="#B0BEC5" Foreground="White" FontWeight="Bold"/>
+            <Button Content="Save" Command="{Binding AcceptChangesCommand}" Visibility="{Binding IsReadOnlyMode, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVisibilityInverseConverter}}" Width="100" Background="#8E2DE2" Foreground="White" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Window>
